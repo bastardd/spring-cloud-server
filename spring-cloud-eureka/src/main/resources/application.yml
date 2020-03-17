@@ -1,0 +1,26 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: first-cloud-server
+  profiles: tzl
+eureka:
+  instance:
+    hostname: tzl
+  client:
+    service-url:
+      defaultZone: http://cyxuan:8762/eureka/
+
+---
+server:
+  port: 8762
+spring:
+  application:
+    name: first-cloud-server
+  profiles: cyxuan
+eureka:
+  instance:
+    hostname: cyxuan
+  client:
+    service-url:
+      defaultZone: http://tzl:8761/eureka/
